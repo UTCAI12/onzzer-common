@@ -5,7 +5,6 @@ import fr.utc.onzzer.common.dataclass.UserLite;
 
 import java.net.ConnectException;
 import java.util.List;
-import java.util.UUID;
 
 public interface ComMainServices {
     void connect(UserLite user, List<Track> trackList) throws ConnectException;
