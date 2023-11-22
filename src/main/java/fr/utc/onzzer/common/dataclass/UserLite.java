@@ -1,8 +1,9 @@
 package fr.utc.onzzer.common.dataclass;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class UserLite {
+public class UserLite implements Serializable {
     private UUID id;
     private String username;
 

@@ -1,9 +1,10 @@
 package fr.utc.onzzer.common.dataclass;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
-public class Rating {
+public class Rating implements Serializable {
     private UUID id;
     private UserLite user;
     private String username;
