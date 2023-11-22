@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="onzzer-common-classes" />
+        <module name="onzzer-common" />
       </profile>
     </annotationProcessing>
   </component>
