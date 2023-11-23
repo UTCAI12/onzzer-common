@@ -1,11 +1,12 @@
 package fr.utc.onzzer.common.dataclass;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-public class User {
+public class User implements Serializable {
     private UUID id;
     private String username;
     private List<Track> trackList;
