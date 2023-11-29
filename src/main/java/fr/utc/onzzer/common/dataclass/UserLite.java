@@ -29,4 +29,12 @@ public class UserLite implements Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    @Override
+    public String toString() {
+        return "UserLite{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }

@@ -60,4 +60,15 @@ public class Rating implements Serializable {
     public void setValue(short value) {
         this.value = value;
     }
+
+    @Override
+    public String toString() {
+        return "Rating{" +
+                "id=" + id +
+                ", user=" + user +
+                ", username='" + username + '\'' +
+                ", date=" + date +
+                ", value=" + value +
+                '}';
+    }
 }

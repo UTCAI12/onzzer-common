@@ -1,10 +1,7 @@
 package fr.utc.onzzer.common.dataclass;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class User implements Serializable {
     private UUID id;
@@ -65,6 +62,21 @@ public class User implements Serializable {
 
     public void setTrackList(List<Track> trackList) {
         this.trackList = trackList;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", trackList=" + trackList +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", birthdate=" + birthdate +
+                ", avatar=" + Arrays.toString(avatar) +
+                '}';
     }
 }
 

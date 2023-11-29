@@ -60,4 +60,15 @@ public class Comment implements Serializable {
     public void setText(String text) {
         this.text = text;
     }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", user=" + user +
+                ", username='" + username + '\'' +
+                ", date=" + date +
+                ", text='" + text + '\'' +
+                '}';
+    }
 }

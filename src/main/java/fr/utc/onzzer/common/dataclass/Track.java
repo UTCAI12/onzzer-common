@@ -2,6 +2,7 @@ package fr.utc.onzzer.common.dataclass;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -75,6 +76,20 @@ public class Track implements Serializable {
 
     public void setAudio(byte[] audio) {
         this.audio = audio;
+    }
+
+    @Override
+    public String toString() {
+        return "Track{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", tags=" + tags +
+                ", ratings=" + ratings +
+                ", comments=" + comments +
+                ", audio=" + Arrays.toString(audio) +
+                '}';
     }
 }
 
