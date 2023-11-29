@@ -6,6 +6,8 @@ import java.util.*;
 public class User implements Serializable {
     private UUID id;
     private String username;
+    private String firstName;
+    private String lastName;
     private List<Track> trackList;
     private String email;
     private String password;
@@ -38,7 +40,21 @@ public class User implements Serializable {
         this.username = username;
     }
 
-    // Other getters and setters for the remaining attributes
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public List<Track> getTrackList() {
         return trackList;
