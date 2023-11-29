@@ -61,4 +61,15 @@ public class TrackLite implements Serializable {
     public void setTags(List<String> tags) {
         this.tags = tags;
     }
+
+    @Override
+    public String toString() {
+        return "TrackLite{" +
+                "id=" + id +
+                ", user=" + user +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", tags=" + tags +
+                '}';
+    }
 }
