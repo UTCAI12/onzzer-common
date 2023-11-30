@@ -7,12 +7,12 @@ import java.util.UUID;
 
 public class TrackLite implements Serializable {
     private UUID id;
-    private UserLite user;
+    private UUID user;
     private String title;
     private String author;
     private List<String> tags;
 
-    public TrackLite(UUID id, UserLite user, String title, String author) {
+    public TrackLite(UUID id, UUID user, String title, String author) {
         this.id = id;
         this.user = user;
         this.title = title;
@@ -27,7 +27,7 @@ public class TrackLite implements Serializable {
         return id;
     }
 
-    public UserLite getUser() {
+    public UUID getUser() {
         return user;
     }
 
@@ -47,7 +47,7 @@ public class TrackLite implements Serializable {
         this.id = id;
     }
 
-    public void setUser(UserLite user) {
+    public void setUser(UUID user) {
         this.user = user;
     }
 

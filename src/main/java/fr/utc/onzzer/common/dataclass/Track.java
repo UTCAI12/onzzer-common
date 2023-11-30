@@ -92,7 +92,10 @@ public class Track implements Serializable {
     public void setAudio(byte[] audio) {
         this.audio = audio;
     }
-
+    public TrackLite toTrackLite(){
+        TrackLite trackLite = new TrackLite(this.id, this.userId, this.title,this.author);
+        return trackLite;
+    }
     @Override
     public String toString() {
         return "Track{" +

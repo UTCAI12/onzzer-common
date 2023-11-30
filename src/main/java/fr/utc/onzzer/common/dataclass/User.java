@@ -25,6 +25,7 @@ public class User implements Serializable {
     // Getters and setters for other attributes
 
 
+
     public UUID getId() {
         return id;
     }
@@ -97,6 +98,10 @@ public class User implements Serializable {
         this.avatar = avatar;
     }
 
+    public UserLite toUserLite(){
+        UserLite userLite = new UserLite(this.id, this.username);
+        return userLite;
+    }
     @Override
     public String toString() {
         return "User{" +
