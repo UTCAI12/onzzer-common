@@ -22,40 +22,41 @@ public class TrackLite implements Serializable {
 
     // Getters and setters for other attributes
 
+
     public UUID getId() {
         return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 
     public UserLite getUser() {
         return user;
     }
 
-    public void setUser(UserLite user) {
-        this.user = user;
-    }
-
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
     public List<String> getTags() {
         return tags;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public void setUser(UserLite user) {
+        this.user = user;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public void setTags(List<String> tags) {
