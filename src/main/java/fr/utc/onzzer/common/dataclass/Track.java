@@ -2,7 +2,9 @@ package fr.utc.onzzer.common.dataclass;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -128,6 +130,14 @@ public class Track implements Serializable {
     public TrackLite toTrackLite(){
         TrackLite trackLite = new TrackLite(this.id, this.userId, this.title,this.author);
         return trackLite;
+    }
+
+    public String asMp3File(byte[] audio, String nomFichier) throws IOException {
+        String repertoireTemporaire = System.getProperty("java.io.tmpdir");
+        String nomFichierAvecExtension = nomFichier + ".mp3";
+        Path cheminFichier = Path.of(repertoireTemporaire, nomFichierAvecExtension);
+        Files.write(cheminFichier, audio, StandardOpenOption.CREATE);
+        return cheminFichier.toString();
     }
     @Override
     public String toString() {
