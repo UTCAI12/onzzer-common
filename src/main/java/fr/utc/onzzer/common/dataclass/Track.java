@@ -140,7 +140,7 @@ public class Track implements Serializable {
         this.audio = audio;
     }
     public TrackLite toTrackLite(){
-        TrackLite trackLite = new TrackLite(this.id, this.userId, this.title,this.author);
+        TrackLite trackLite = new TrackLite(this.id, this.userId, this.title,this.author, album);
         return trackLite;
     }
 

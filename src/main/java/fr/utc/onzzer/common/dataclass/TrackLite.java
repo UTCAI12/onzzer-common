@@ -11,12 +11,14 @@ public class TrackLite implements Serializable {
     private String title;
     private String author;
     private List<String> tags;
+    private String album;
 
-    public TrackLite(UUID id, UUID user, String title, String author) {
+    public TrackLite(UUID id, UUID user, String title, String author, String album) {
         this.id = id;
         this.user = user;
         this.title = title;
         this.author = author;
+        this.album = album;
         this.tags = new ArrayList<String>();
     }
 
@@ -29,6 +31,9 @@ public class TrackLite implements Serializable {
 
     public UUID getUser() {
         return user;
+    }
+    public String getAlbum() {
+        return album;
     }
 
     public String getTitle() {
@@ -57,6 +62,10 @@ public class TrackLite implements Serializable {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public void setAlbum(String album) {
+        this.album = album;
     }
 
     public void setTags(List<String> tags) {
