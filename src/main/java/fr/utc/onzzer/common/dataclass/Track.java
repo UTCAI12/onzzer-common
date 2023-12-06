@@ -47,17 +47,6 @@ public class Track implements Serializable {
         this.comments = new ArrayList<Comment>();
         this.audio = audio;
     }
-    public Track(UUID uuid, byte[] audio, UUID userId, String title, String author, Boolean privateTrack){
-        this.id = uuid;
-        this.userId = userId;
-        this.title = title;
-        this.author = author;
-        this.privateTrack = privateTrack;
-        this.tags = new ArrayList<String>();
-        this.ratings = new ArrayList<Rating>();
-        this.comments = new ArrayList<Comment>();
-        this.audio = audio;
-    }
 
     public Track(UUID uuid, String audioPath, UUID userId, String title, String author, Boolean privateTrack) throws IOException {
         this.id = uuid;
