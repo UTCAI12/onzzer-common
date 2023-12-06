@@ -2,7 +2,10 @@ package fr.utc.onzzer.common.dataclass;
 
 import java.io.IOException;
 import java.io.Serializable;
+
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -19,6 +22,8 @@ public class Track implements Serializable {
     private List<Comment> comments;
     private byte[] audio;
     private Boolean privateTrack;
+    private String album;
+
 
 
     public Track(UUID id, UUID userId, String title, String author, Boolean privateTrack) {
@@ -30,6 +35,17 @@ public class Track implements Serializable {
         this.tags = new ArrayList<String>();
         this.ratings = new ArrayList<Rating>();
         this.comments = new ArrayList<Comment>();
+    }
+    public Track(UUID uuid, byte[] audio, UUID userId, String title, String author, Boolean privateTrack){
+        this.id = uuid;
+        this.userId = userId;
+        this.title = title;
+        this.author = author;
+        this.privateTrack = privateTrack;
+        this.tags = new ArrayList<String>();
+        this.ratings = new ArrayList<Rating>();
+        this.comments = new ArrayList<Comment>();
+        this.audio = audio;
     }
     public Track(UUID uuid, byte[] audio, UUID userId, String title, String author, Boolean privateTrack){
         this.id = uuid;
@@ -56,10 +72,19 @@ public class Track implements Serializable {
     }
     // Getters and setters for other attributes
 
+    public void setPrivateTrack(Boolean privateTrack) {
+        this.privateTrack = privateTrack;
+    }
+
+    public void setAlbum(String album) {
+        this.album = album;
+    }
     public UUID getId() {
         return id;
     }
-
+    public String getAlbum() {
+        return album;
+    }
     public UUID getUserId() {
         return userId;
     }
@@ -129,6 +154,15 @@ public class Track implements Serializable {
         TrackLite trackLite = new TrackLite(this.id, this.userId, this.title,this.author);
         return trackLite;
     }
+
+    public String asMp3File(String nomFichier) throws IOException {
+        String repertoireTemporaire = System.getProperty("java.io.tmpdir");
+        String nomFichierAvecExtension = nomFichier + ".mp3";
+        Path cheminFichier = Path.of(repertoireTemporaire, nomFichierAvecExtension);
+        Files.write(cheminFichier, this.audio, StandardOpenOption.CREATE);
+        return cheminFichier.toString();
+    }
+
     @Override
     public String toString() {
         return "Track{" +
