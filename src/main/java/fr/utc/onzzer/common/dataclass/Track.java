@@ -1,10 +1,13 @@
 package fr.utc.onzzer.common.dataclass;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.nio.file.Files;
 
 public class Track implements Serializable {
     private UUID id;
@@ -15,19 +18,43 @@ public class Track implements Serializable {
     private List<Rating> ratings;
     private List<Comment> comments;
     private byte[] audio;
+    private Boolean privateTrack;
 
-    public Track(UUID id, UUID userId, String title, String author) {
+
+    public Track(UUID id, UUID userId, String title, String author, Boolean privateTrack) {
         this.id = id;
         this.userId = userId;
         this.title = title;
         this.author = author;
+        this.privateTrack = privateTrack;
         this.tags = new ArrayList<String>();
         this.ratings = new ArrayList<Rating>();
         this.comments = new ArrayList<Comment>();
     }
+    public Track(UUID uuid, byte[] audio, UUID userId, String title, String author, Boolean privateTrack){
+        this.id = uuid;
+        this.userId = userId;
+        this.title = title;
+        this.author = author;
+        this.privateTrack = privateTrack;
+        this.tags = new ArrayList<String>();
+        this.ratings = new ArrayList<Rating>();
+        this.comments = new ArrayList<Comment>();
+        this.audio = audio;
+    }
 
+    public Track(UUID uuid, String audioPath, UUID userId, String title, String author, Boolean privateTrack) throws IOException {
+        this.id = uuid;
+        this.userId = userId;
+        this.title = title;
+        this.author = author;
+        this.privateTrack = privateTrack;
+        this.tags = new ArrayList<String>();
+        this.ratings = new ArrayList<Rating>();
+        this.comments = new ArrayList<Comment>();
+        this.audio = Files.readAllBytes(Paths.get(audioPath));
+    }
     // Getters and setters for other attributes
-
 
     public UUID getId() {
         return id;
@@ -36,7 +63,9 @@ public class Track implements Serializable {
     public UUID getUserId() {
         return userId;
     }
-
+    public Boolean getPrivateTrack() {
+        return privateTrack;
+    }
     public String getTitle() {
         return title;
     }
@@ -75,6 +104,10 @@ public class Track implements Serializable {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public void setAuthor(Boolean privateTrack) {
+        this.privateTrack = privateTrack;
     }
 
     public void setTags(List<String> tags) {
