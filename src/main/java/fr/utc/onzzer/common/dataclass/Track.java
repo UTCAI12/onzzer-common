@@ -21,6 +21,7 @@ public class Track implements Serializable {
     private List<Comment> comments;
     private byte[] audio;
     private Boolean privateTrack;
+    private String album;
 
 
     public Track(UUID id, UUID userId, String title, String author, Boolean privateTrack) {
@@ -58,10 +59,19 @@ public class Track implements Serializable {
     }
     // Getters and setters for other attributes
 
+    public void setPrivateTrack(Boolean privateTrack) {
+        this.privateTrack = privateTrack;
+    }
+
+    public void setAlbum(String album) {
+        this.album = album;
+    }
     public UUID getId() {
         return id;
     }
-
+    public String getAlbum() {
+        return album;
+    }
     public UUID getUserId() {
         return userId;
     }
@@ -132,13 +142,14 @@ public class Track implements Serializable {
         return trackLite;
     }
 
-    public String asMp3File(byte[] audio, String nomFichier) throws IOException {
+    public String asMp3File(String nomFichier) throws IOException {
         String repertoireTemporaire = System.getProperty("java.io.tmpdir");
         String nomFichierAvecExtension = nomFichier + ".mp3";
         Path cheminFichier = Path.of(repertoireTemporaire, nomFichierAvecExtension);
-        Files.write(cheminFichier, audio, StandardOpenOption.CREATE);
+        Files.write(cheminFichier, this.audio, StandardOpenOption.CREATE);
         return cheminFichier.toString();
     }
+
     @Override
     public String toString() {
         return "Track{" +
