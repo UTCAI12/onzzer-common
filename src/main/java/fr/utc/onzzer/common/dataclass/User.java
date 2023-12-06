@@ -97,7 +97,9 @@ public class User implements Serializable {
     public void setAvatar(byte[] avatar) {
         this.avatar = avatar;
     }
-
+    public void addTrackToTrackList(Track track){
+        this.trackList.add(track);
+    }
     public UserLite toUserLite(){
         UserLite userLite = new UserLite(this.id, this.username);
         return userLite;
