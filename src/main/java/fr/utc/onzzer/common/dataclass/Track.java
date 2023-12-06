@@ -2,6 +2,7 @@ package fr.utc.onzzer.common.dataclass;
 
 import java.io.IOException;
 import java.io.Serializable;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -24,6 +25,7 @@ public class Track implements Serializable {
     private String album;
 
 
+
     public Track(UUID id, UUID userId, String title, String author, Boolean privateTrack) {
         this.id = id;
         this.userId = userId;
@@ -33,6 +35,17 @@ public class Track implements Serializable {
         this.tags = new ArrayList<String>();
         this.ratings = new ArrayList<Rating>();
         this.comments = new ArrayList<Comment>();
+    }
+    public Track(UUID uuid, byte[] audio, UUID userId, String title, String author, Boolean privateTrack){
+        this.id = uuid;
+        this.userId = userId;
+        this.title = title;
+        this.author = author;
+        this.privateTrack = privateTrack;
+        this.tags = new ArrayList<String>();
+        this.ratings = new ArrayList<Rating>();
+        this.comments = new ArrayList<Comment>();
+        this.audio = audio;
     }
     public Track(UUID uuid, byte[] audio, UUID userId, String title, String author, Boolean privateTrack){
         this.id = uuid;
