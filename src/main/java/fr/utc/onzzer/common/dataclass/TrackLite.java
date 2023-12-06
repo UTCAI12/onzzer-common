@@ -7,65 +7,55 @@ import java.util.UUID;
 
 public class TrackLite implements Serializable {
     private UUID id;
-    private UUID user;
+    private UserLite user;
     private String title;
     private String author;
     private List<String> tags;
-    private String album;
 
-    public TrackLite(UUID id, UUID user, String title, String author, String album) {
+    public TrackLite(UUID id, UserLite user, String title, String author) {
         this.id = id;
         this.user = user;
         this.title = title;
         this.author = author;
-        this.album = album;
         this.tags = new ArrayList<String>();
     }
 
     // Getters and setters for other attributes
 
-
     public UUID getId() {
         return id;
-    }
-
-    public UUID getUser() {
-        return user;
-    }
-    public String getAlbum() {
-        return album;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public List<String> getTags() {
-        return tags;
     }
 
     public void setId(UUID id) {
         this.id = id;
     }
 
-    public void setUser(UUID user) {
+    public UserLite getUser() {
+        return user;
+    }
+
+    public void setUser(UserLite user) {
         this.user = user;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
     public void setAuthor(String author) {
         this.author = author;
     }
 
-    public void setAlbum(String album) {
-        this.album = album;
+    public List<String> getTags() {
+        return tags;
     }
 
     public void setTags(List<String> tags) {

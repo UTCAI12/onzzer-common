@@ -5,7 +5,6 @@ public enum SocketMessagesTypes {
     USER_CONNECTED,
     USER_DISCONNECT,
     USER_UPDATE,
-    USER_PING,
 
     GET_TRACK,
     DOWNLOAD_TRACK,
@@ -16,6 +15,5 @@ public enum SocketMessagesTypes {
     PUBLISH_COMMENT,
     PUBLISH_RATING,
 
-    SERVER_STOPPED,
-    SERVER_PING,
+    SERVER_STOPPED
 }
