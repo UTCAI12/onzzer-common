@@ -144,9 +144,9 @@ public class Track implements Serializable {
         return trackLite;
     }
 
-    public String asMp3File(String nomFichier) throws IOException {
+    public String asMp3File() throws IOException {
         String repertoireTemporaire = System.getProperty("java.io.tmpdir");
-        String nomFichierAvecExtension = nomFichier + ".mp3";
+        String nomFichierAvecExtension = title.replace(' ', '_') + ".mp3";
         Path cheminFichier = Path.of(repertoireTemporaire, nomFichierAvecExtension);
         Files.write(cheminFichier, this.audio, StandardOpenOption.CREATE);
         return cheminFichier.toString();
