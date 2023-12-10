@@ -6,10 +6,7 @@ import java.io.Serializable;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 import java.nio.file.Files;
 
 public class Track implements Serializable {
@@ -164,6 +161,19 @@ public class Track implements Serializable {
                 ", comments=" + comments +
                 ", audio=" + Arrays.toString(audio) +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Track track = (Track) o;
+        return Objects.equals(id, track.id) && Objects.equals(userId, track.userId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, userId);
     }
 }
 

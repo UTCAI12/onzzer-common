@@ -3,6 +3,7 @@ package fr.utc.onzzer.common.dataclass;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 public class TrackLite implements Serializable {
@@ -81,5 +82,18 @@ public class TrackLite implements Serializable {
                 ", author='" + author + '\'' +
                 ", tags=" + tags +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TrackLite trackLite = (TrackLite) o;
+        return Objects.equals(id, trackLite.id) && Objects.equals(user, trackLite.user);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, user);
     }
 }
