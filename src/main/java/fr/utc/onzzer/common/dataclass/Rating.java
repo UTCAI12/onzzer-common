@@ -78,11 +78,15 @@ public class Rating implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Rating rating = (Rating) o;
-        return Objects.equals(id, rating.id) && Objects.equals(username, rating.username);
+        return Objects.equals(id, rating.id)
+                && Objects.equals(username, rating.username)
+                && Objects.equals(date, rating.date)
+                && Objects.equals(value, rating.value)
+                && user == rating.user;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username);
+        return Objects.hash(id, username, date, value, user);
     }
 }

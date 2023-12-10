@@ -168,12 +168,19 @@ public class Track implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Track track = (Track) o;
-        return Objects.equals(id, track.id) && Objects.equals(userId, track.userId);
+        return Objects.equals(id, track.id)
+                && Objects.equals(userId, track.userId)
+                && Objects.equals(title, track.title)
+                && Objects.equals(author, track.author)
+                && Objects.equals(tags, track.tags)
+                && Objects.equals(album, track.album)
+                && ratings == track.ratings
+                && comments == track.comments;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId);
+        return Objects.hash(id, userId, title, author, tags, album, ratings, comments);
     }
 }
 

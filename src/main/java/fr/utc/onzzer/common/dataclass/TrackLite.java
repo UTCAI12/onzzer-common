@@ -89,11 +89,16 @@ public class TrackLite implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TrackLite trackLite = (TrackLite) o;
-        return Objects.equals(id, trackLite.id) && Objects.equals(user, trackLite.user);
+        return Objects.equals(id, trackLite.id)
+                && Objects.equals(user, trackLite.user)
+                && Objects.equals(title, trackLite.title)
+                && Objects.equals(author, trackLite.author)
+                && Objects.equals(tags, trackLite.tags)
+                && Objects.equals(album, trackLite.album);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user);
+        return Objects.hash(id, user, title, author, tags, album);
     }
 }

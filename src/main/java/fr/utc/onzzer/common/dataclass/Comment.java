@@ -78,12 +78,16 @@ public class Comment implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Comment comment = (Comment) o;
-        return Objects.equals(id, comment.id) && Objects.equals(username, comment.username);
+        return Objects.equals(id, comment.id)
+                && Objects.equals(username, comment.username)
+                && Objects.equals(date, comment.date)
+                && Objects.equals(text, comment.text)
+                && user == comment.user;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username);
+        return Objects.hash(id, username, date, text, user);
     }
 
 
