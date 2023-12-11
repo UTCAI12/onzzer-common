@@ -2,6 +2,7 @@ package fr.utc.onzzer.common.dataclass;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Comment implements Serializable {
@@ -71,4 +72,23 @@ public class Comment implements Serializable {
                 ", text='" + text + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Comment comment = (Comment) o;
+        return Objects.equals(id, comment.id)
+                && Objects.equals(username, comment.username)
+                && Objects.equals(date, comment.date)
+                && Objects.equals(text, comment.text)
+                && user.equals(comment.user);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, date, text);
+    }
+
+
 }

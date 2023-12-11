@@ -1,6 +1,7 @@
 package fr.utc.onzzer.common.dataclass;
 
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.UUID;
 
 public class UserLite implements Serializable {
@@ -36,5 +37,18 @@ public class UserLite implements Serializable {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserLite userLite = (UserLite) o;
+        return Objects.equals(id, userLite.id) && Objects.equals(username, userLite.username);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username);
     }
 }

@@ -2,6 +2,7 @@ package fr.utc.onzzer.common.dataclass;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Rating implements Serializable {
@@ -70,5 +71,22 @@ public class Rating implements Serializable {
                 ", date=" + date +
                 ", value=" + value +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Rating rating = (Rating) o;
+        return Objects.equals(id, rating.id)
+                && Objects.equals(username, rating.username)
+                && Objects.equals(date, rating.date)
+                && Objects.equals(value, rating.value)
+                && user.equals(rating.user);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, date, value);
     }
 }

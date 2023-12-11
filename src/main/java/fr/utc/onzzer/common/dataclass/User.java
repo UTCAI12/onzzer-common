@@ -1,6 +1,7 @@
 package fr.utc.onzzer.common.dataclass;
 
 import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class User implements Serializable {
@@ -117,6 +118,24 @@ public class User implements Serializable {
                 ", birthdate=" + birthdate +
                 ", avatar=" + Arrays.toString(avatar) +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id)
+                && Objects.equals(username, user.username)
+                && Objects.equals(firstName, user.firstName)
+                && Objects.equals(lastName, user.lastName)
+                && Objects.equals(email, user.email)
+                && Objects.equals(password, user.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, firstName, lastName, email, password);
     }
 }
 
