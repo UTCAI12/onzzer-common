@@ -2,6 +2,7 @@ package fr.utc.onzzer.common.dataclass.communication;
 
 public enum SocketMessagesTypes {
     USER_CONNECT,
+    USER_LOGIN_ERROR,
     USER_CONNECTED,
     USER_DISCONNECT,
     USER_UPDATE,
