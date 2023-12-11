@@ -172,15 +172,12 @@ public class Track implements Serializable {
                 && Objects.equals(userId, track.userId)
                 && Objects.equals(title, track.title)
                 && Objects.equals(author, track.author)
-                && Objects.equals(tags, track.tags)
-                && Objects.equals(album, track.album)
-                && ratings == track.ratings
-                && comments == track.comments;
+                && Objects.equals(album, track.album);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId, title, author, tags, album, ratings, comments);
+        return Objects.hash(id, userId, title, author, album);
     }
 }
 

@@ -82,12 +82,12 @@ public class Comment implements Serializable {
                 && Objects.equals(username, comment.username)
                 && Objects.equals(date, comment.date)
                 && Objects.equals(text, comment.text)
-                && user == comment.user;
+                && user.equals(comment.user);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, date, text, user);
+        return Objects.hash(id, username, date, text);
     }
 
 

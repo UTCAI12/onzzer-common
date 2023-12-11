@@ -82,11 +82,11 @@ public class Rating implements Serializable {
                 && Objects.equals(username, rating.username)
                 && Objects.equals(date, rating.date)
                 && Objects.equals(value, rating.value)
-                && user == rating.user;
+                && user.equals(rating.user);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, date, value, user);
+        return Objects.hash(id, username, date, value);
     }
 }

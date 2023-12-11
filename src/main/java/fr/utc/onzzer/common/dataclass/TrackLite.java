@@ -8,15 +8,15 @@ import java.util.UUID;
 
 public class TrackLite implements Serializable {
     private UUID id;
-    private UUID user;
+    private UUID userId;
     private String title;
     private String author;
     private List<String> tags;
     private String album;
 
-    public TrackLite(UUID id, UUID user, String title, String author, String album) {
+    public TrackLite(UUID id, UUID userId, String title, String author, String album) {
         this.id = id;
-        this.user = user;
+        this.userId = userId;
         this.title = title;
         this.author = author;
         this.album = album;
@@ -30,8 +30,8 @@ public class TrackLite implements Serializable {
         return id;
     }
 
-    public UUID getUser() {
-        return user;
+    public UUID getUserId() {
+        return userId;
     }
     public String getAlbum() {
         return album;
@@ -53,8 +53,8 @@ public class TrackLite implements Serializable {
         this.id = id;
     }
 
-    public void setUser(UUID user) {
-        this.user = user;
+    public void setUserId(UUID user) {
+        this.userId = userId;
     }
 
     public void setTitle(String title) {
@@ -77,7 +77,7 @@ public class TrackLite implements Serializable {
     public String toString() {
         return "TrackLite{" +
                 "id=" + id +
-                ", user=" + user +
+                ", userId=" + userId +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", tags=" + tags +
@@ -90,15 +90,14 @@ public class TrackLite implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         TrackLite trackLite = (TrackLite) o;
         return Objects.equals(id, trackLite.id)
-                && Objects.equals(user, trackLite.user)
+                && Objects.equals(userId, trackLite.userId)
                 && Objects.equals(title, trackLite.title)
                 && Objects.equals(author, trackLite.author)
-                && Objects.equals(tags, trackLite.tags)
                 && Objects.equals(album, trackLite.album);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, title, author, tags, album);
+        return Objects.hash(id, userId, title, author, album);
     }
 }
